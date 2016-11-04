@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Keep-Up</string>
+    <string name="new_title"> Enter Title for New Item</string>
+    <string name="new_description"> Enter Description for New Item</string>
+    <string name="new_button">Add New Item</string>
+    <string name="dialog_title">Add New Item</string>
+</resources>
