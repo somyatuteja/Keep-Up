@@ -4,4 +4,9 @@
     <string name="new_description"> Enter Description for New Item</string>
     <string name="new_button">Add New Item</string>
     <string name="dialog_title">Add New Item</string>
+    <string name="delete_done">Delete Completed work</string>
+    <string name="current_status">Current Status  :  </string>
+    <string name="completed">Completed</string>
+    <string name="not_completed">Not Completed</string>
+
 </resources>

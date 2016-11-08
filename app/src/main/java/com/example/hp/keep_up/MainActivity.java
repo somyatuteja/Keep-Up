@@ -3,6 +3,7 @@ package com.example.hp.keep_up;
 import android.app.Dialog;
 import android.content.Context;
 import android.database.DataSetObserver;
+import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -41,10 +42,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
        mRecyclerView =(RecyclerView) findViewById(R.id.toDoListRecyclerView);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+       // mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+       getUpdatedRecyclerView();
+    }
+    void getUpdatedRecyclerView()
+    {
         listAdapter =new com.example.hp.keep_up.ListAdapter(getApplicationContext());
-     mRecyclerView.setAdapter(listAdapter);
+        mRecyclerView.setAdapter(listAdapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+       // mRecyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).color(Color.RED).sizeResId(R.dimen.divider).marginResId(R.dimen.leftmargin, R.dimen.rightmargin).build());
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -63,7 +69,10 @@ public class MainActivity extends AppCompatActivity {
                 Log.v("MainActivity","Selected new");
                openDialog();
                 break;
-
+            case R.id.deleteMenuItem :
+             ToDoListItem.deleteItems();
+                getUpdatedRecyclerView();
+                break;
 
         }
     return true;
@@ -86,12 +95,11 @@ final Dialog dialog=new Dialog(this);
                 String newDescription=newDescEditText.getText().toString();
                 ToDoListItem toDoListItem=new ToDoListItem(newTitle, newDescription);
                 toDoListItem.addToDataBase(context);
-                listAdapter.notifyDataSetChanged();
+               getUpdatedRecyclerView();
                 showToast("New Item has been Added",true);
                 dialog.dismiss();
             }
         });
         dialog.show();
     }
-
 }
