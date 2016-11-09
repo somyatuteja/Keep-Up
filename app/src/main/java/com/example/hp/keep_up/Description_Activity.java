@@ -15,7 +15,7 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Description_Activity extends ActionBarActivity {
+public class Description_Activity extends AppCompatActivity {
   ViewPager viewPager=null;
     int curid;
     private ArrayList<ToDoListItem> mToDoListItemList;
@@ -23,15 +23,16 @@ public class Description_Activity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.v("Fragment","enters the activity");
         super.onCreate(savedInstanceState);
-      Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-getActionBar().setDisplayHomeAsUpEnabled(true);
+
         setContentView(R.layout.activity_description_activity);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        assert getSupportActionBar()!=null;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true)  ;
         DatabaseHelper databaseHelper=DatabaseHelper.getInstance(getApplicationContext());
         mToDoListItemList=databaseHelper.getArrayList();
          curid=getIntent().getIntExtra("ID",0);
         Log.v("Fragment","gets curid="+curid);
-
         viewPager =(ViewPager)findViewById(R.id.descriptionViewPager);
         FragmentManager fragmentManager = getSupportFragmentManager();
         viewPager.setAdapter(new myViewPagerAdapter(fragmentManager));

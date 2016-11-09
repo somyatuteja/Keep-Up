@@ -98,9 +98,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  return  arrayListItem;
 
     }
-    public void updatedoneStatus(int id)
-    {String query="Update "+TABLE_NAME+" set "+COL4+" ='true' where "+COL1+" ="+id;
-        SQLiteDatabase db=this.getWritableDatabase();
-        db.execSQL(query);
+    public void updatedoneStatus(int id, String status)
+    {
+        if (status.equals("false")) {
+            String query = "Update " + TABLE_NAME + " set " + COL4 + " ='false' where " + COL1 + " =" + id;
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(query);
+            Log.v("DatabaseHelper","in false");
+        }
+        else if (status.equals("true")) {
+            String query = "Update " + TABLE_NAME + " set " + COL4 + " ='true' where " + COL1 + " =" + id;
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL(query);
+            Log.v("DatabaseHelper","in true");
+        }
     }
 }

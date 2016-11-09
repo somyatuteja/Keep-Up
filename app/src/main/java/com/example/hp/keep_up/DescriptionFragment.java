@@ -32,8 +32,12 @@ public TextView mStatusTextView;
         mTitleTextView=(TextView)inflatedView.findViewById(R.id.fragmentTitle);
         mTitleTextView.setText(toDoListItem.title);
         mStatusTextView=(TextView)inflatedView.findViewById(R.id.fragmentStatus);
-        mStatusTextView.setText(toDoListItem.status);
-return inflatedView;
+        if(toDoListItem.status.equals("true"))
+           mStatusTextView.setText(R.string.completed);
+        if(toDoListItem.status.equals("false"))
+            mStatusTextView.setText(R.string.not_completed);
+
+        return inflatedView;
     }
      static DescriptionFragment getInstance(int id)
      {

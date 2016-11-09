@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-       mRecyclerView =(RecyclerView) findViewById(R.id.toDoListRecyclerView);
+        mRecyclerView =(RecyclerView) findViewById(R.id.toDoListRecyclerView);
        // mRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
        getUpdatedRecyclerView();
     }
@@ -73,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
              ToDoListItem.deleteItems();
                 getUpdatedRecyclerView();
                 break;
-
         }
     return true;
     }

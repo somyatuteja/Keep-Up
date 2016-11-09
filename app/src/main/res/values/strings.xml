@@ -8,5 +8,7 @@
     <string name="current_status">Current Status  :  </string>
     <string name="completed">Completed</string>
     <string name="not_completed">Not Completed</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="description_activity">Description of items</string>
 
 </resources>

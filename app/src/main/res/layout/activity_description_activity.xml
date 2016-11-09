@@ -2,17 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="#2196F3"
+    >
 <android.support.v7.widget.Toolbar
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/toolbar">
+    android:layout_height="wrap_content"
+    android:id="@+id/toolbar"
+    android:background="#1976D2">
 </android.support.v7.widget.Toolbar>
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/descriptionViewPager">
+        android:id="@+id/descriptionViewPager"
+        android:backgroundTint="#2196F3"
+        >
 
     </android.support.v4.view.ViewPager>
 </LinearLayout>

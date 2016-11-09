@@ -1,6 +1,7 @@
 package com.example.hp.keep_up;
 
 import android.content.Context;
+import android.util.Log;
 
 public class ToDoListItem {
     int id;
@@ -28,17 +29,17 @@ public class ToDoListItem {
     }
     void changeStatus()
     {
+        Log.v("DatabaseHelper","in Change Status status:"+this.status);
         if(this.status.equals("false"))
         this.status="true";
         else
         if (this.status.equals("true"))
             this.status="false";
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
-        databaseHelper.updatedoneStatus(this.id);
+        databaseHelper.updatedoneStatus(this.id, this.status);
     }
     static void deleteItems()
     {
-
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
         databaseHelper.deleteData();
     }
